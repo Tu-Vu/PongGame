@@ -1,0 +1,12 @@
+﻿  Ball.cpp
+d:\github\oop_pt\pong\pong\ball.cpp(22): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+d:\github\oop_pt\pong\pong\ball.cpp(26): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  Pong.vcxproj -> D:\GITHUB\OOP_pt\Pong\x64\Debug\Pong.exe
