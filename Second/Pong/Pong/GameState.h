@@ -2,45 +2,28 @@
 #define _GAMESTATE_H_
 #include <SFML/Graphics.hpp>
 using namespace sf;
-class TinyState{
+class TinyState{ // hàm ảo không làm gì cả
 public:
-	virtual void Initialize(RenderWindow* window) {};
-	virtual void Update(RenderWindow* window) {};
-	virtual void Render(RenderWindow* window) {};
-	virtual void Destroy(RenderWindow* window) {};
+	virtual void Initialize(RenderWindow* window) =0;
+	virtual void Update(RenderWindow* window) =0;
+	virtual void Render(RenderWindow* window) =0;
+	virtual void Destroy(RenderWindow* window) =0;
 };
 class GameState {
 private:
-	RenderWindow* window;
-	TinyState* state;
+	RenderWindow* window; // windows
+	TinyState* state; 
 public:
-	GameState()	{
-		this->state = NULL;
-	}
-	~GameState() {
-		if (this->state != NULL)
-			this->state->Destroy(this->window);
-	}
-	void SetWindow(RenderWindow* window){
-		this->window = window;
-	}
-	void SetState(TinyState* state){
-		if (this->state != NULL)
-			this->state->Destroy(this->window);
-		this->state = state;
-		if (this->state != NULL)
-			this->state->Initialize(this->window);
-	}
-	void Update(){
-		if (this->state != NULL)
-			this->state->Update(this->window);
-	}
-	void Render(){
-		if (this->state != NULL)
-			this->state->Render(this->window);
-	}
+	GameState();
+	~GameState(); //hàm hủy
+	void SetWindow(RenderWindow* window); // set window
+	void SetState(TinyState* state); // set state
+	void Update(); // update sự kiện
+	void Render(); // render đồ họa
 };
 // biến global trong 1 file (.c/.cpp/.h) và truy cập biến này từ 1 file (.c/.cpp/.h) khác
-extern GameState coreState;
-extern bool quitGame;
+extern GameState coreState; 
+extern bool quitGame; // check xem người chơi quit 
+extern int Windows_Height; // chiều rộng màn hình
+extern int Windows_Weight; // chiều dài màn hình
 #endif

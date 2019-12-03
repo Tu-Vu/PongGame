@@ -1,15 +1,14 @@
-#ifndef _PADDLEPLAYER_H_
+﻿#ifndef _PADDLEPLAYER_H_
 #define _PADDLEPLAYER_H_
 #include "Entity.h"
-#define Windows_Height 600
-#define Windows_Weight 800
-class PaddlePlayer: public Entity
-{
+#include "GameState.h" // để lấy Windows_Height và Windows_Weight 
+
+class PaddlePlayer: public Entity{
 private:
-	int playerNumber;
+	int playerNumber; // 1 = người chơi 1, else = người chơi 2
 public:
-	PaddlePlayer(int playerNumber);
-	virtual void Update();
+	PaddlePlayer(int playerNumber); // tạo người chơi theo playerNumber
+	virtual void Update(); // update sự kiện
 };
 #endif
 

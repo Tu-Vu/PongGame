@@ -4,33 +4,33 @@
 PaddlePlayer::PaddlePlayer(int playerNumber) {
 	this->playerNumber = playerNumber;
 	switch (this->playerNumber) {
-	case 0: { // nguoi choi 1
-		this->Load("paddle1.png");
+	case 0: { // người chơi 1
+		this->Load("paddle1.png"); // load hình cho paddle
 		break;
 	}
-	default: { // nguoi choi 2
-		this->Load("paddle2.png");
+	default: { // người chơi 2
+		this->Load("paddle2.png"); // load hình cho paddle
 		break;
 	}
 	}
 }
 void PaddlePlayer::Update() {
-	switch (this->playerNumber) // moi nguoi choi co control khac nhau
-	{
-	case 0: {
+	switch (this->playerNumber) { // mỗi người chơi có control khác nhau
+	case 0: { // người chơi 1
 		this->velocity.y = Keyboard::isKeyPressed(Keyboard::Key::S) - Keyboard::isKeyPressed(Keyboard::Key::W); 
 		break;
 	}
-	default: {
+	default: { // người chơi 2
 		this->velocity.y = Keyboard::isKeyPressed(Keyboard::Key::Down) - Keyboard::isKeyPressed(Keyboard::Key::Up);
 		break;
 	}
 	}
-	Entity::Update(); // moving object
-	if (this->getPosition().y < 0) { // paddle cham noc thi dung (lố nóc 1 pixel)
-		this->move(0, 1); //+1 pixel y lại cho paddle
+	Entity::Update(); // di chuyển entity theo vector velocity
+	if (this->getPosition().y < 0) { // paddle chạm nóc thì dừng (lố nóc 1 pixel)
+		this->move(0, 1); // +1 y lại cho paddle
 	}
-	if (this->getPosition().y + this->getGlobalBounds().height > Windows_Height) { // paddle cham day thi dung (lỗ đáy 1 pixel)
-		this->move(0, -1); //-1 pixel lại cho paddle
+	if (this->getPosition().y + this->getGlobalBounds().height > Windows_Height) { // paddle chạm đáy thì dừng (lỗ đáy 1 pixel)
+		this->move(0, -1); // -1 y lại cho paddle
 	}
+	
 }

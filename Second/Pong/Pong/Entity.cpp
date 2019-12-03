@@ -1,15 +1,9 @@
-#include "Entity.h"
+﻿#include "Entity.h"
 
-
-
-Entity::Entity()
-{
+Entity::Entity(){
 	this->texture = new Texture();
 }
-
-
-Entity::~Entity()
-{
+Entity::~Entity(){
 	delete this->texture;
 }
 void Entity::Load(string filename) {
@@ -17,8 +11,8 @@ void Entity::Load(string filename) {
 	this->setTexture(*this->texture);
 }
 void Entity::Update() {
-	this->move(this->velocity);
+	this->move(this->velocity); // di chuyển entity theo vector velocity
 }
 bool Entity::CheckCollision(Entity* entity) {
-	return this->getGlobalBounds().intersects(entity->getGlobalBounds());
+	return this->getGlobalBounds().intersects(entity->getGlobalBounds()); // có va chạm (intersects) không
 }

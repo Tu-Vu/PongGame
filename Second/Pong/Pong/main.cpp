@@ -1,26 +1,26 @@
-#include "GameState.h"
+﻿#include "GameState.h"
 #include "MainMenu.h"
-
 #include <Windows.h> // de sau thi ko bi bug
 
-#define Windows_Height 600
-#define Windows_Weight 800
+
 GameState coreState;
 bool quitGame = false;
-int main(){
-	RenderWindow window(VideoMode(Windows_Weight, Windows_Height), "Pong Game");
-	coreState.SetWindow(&window);
-	coreState.SetState(new MainMenu());
+int Windows_Height = 600;
+int Windows_Weight = 800;
 
-	while (window.isOpen()){							// run the program as long as the window is open
-		Event event;									 // check all the window's events that were triggered since the last iteration of the loop
-		while (window.pollEvent(event))	{				// "close requested" event: we close the window
+int main(){
+
+	RenderWindow window(VideoMode(Windows_Weight, Windows_Height), "Pong Game"); // tạo window
+	coreState.SetWindow(&window); // truyền giá trị vào cho window
+	coreState.SetState(new MainMenu()); // hiển thị menu
+
+	while (window.isOpen()){							// chạy chương trình khi window đang mở
+		Event event;									 // kiểm tra sự kiện
+		while (window.pollEvent(event))	{				// nếu đóng window
 			if (event.type == Event::Closed)
 				window.close();
 		}
-	
-		window.clear(Color::Black);
-
+		window.clear(Color::Blue);
 		coreState.Update();
 		coreState.Render();
 		window.display();

@@ -1,16 +1,16 @@
-#ifndef _SCORE_H_
+﻿#ifndef _SCORE_H_
 #define _SCORE_H_
 #include <SFML/Graphics.hpp>
 using namespace sf;
 using namespace std;
-class Score:public Text
-{
+class Score:public Text{
 private:
-	int value;
+	
 public:
-	Score(Font& font,unsigned int size);
-	void ScoreUp();
-	void Update();
+	int value; // trị số điểm
+	Score(Font&, unsigned int size); // set điểm
+	void ScoreUp(); // tăng điểm
+	void Update(); // update điểm
 };
 #endif
 
