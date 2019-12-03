@@ -1,6 +1,6 @@
 ﻿#include "Ball.h"
 
-Ball::Ball(Score* Score1, Score* Score2, PaddlePlayer* player1, PaddlePlayer* player2) {
+Ball::Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2) {
 	this->Load("ball.png"); // load hình ảnh vô texture 
 	this->Score1 = Score1;
 	this->Score2 = Score2;

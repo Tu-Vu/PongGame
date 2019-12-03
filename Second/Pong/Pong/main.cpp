@@ -12,20 +12,20 @@ int main(){
 
 	RenderWindow window(VideoMode(Windows_Weight, Windows_Height), "Pong Game"); // tạo window
 	coreState.SetWindow(&window); // truyền giá trị vào cho window
-	coreState.SetState(new MainMenu()); // hiển thị menu
+	coreState.SetState(new MainMenu()); // hiển thị menu. Initialize game
 
 	while (window.isOpen()){							// chạy chương trình khi window đang mở
-		Event event;									 // kiểm tra sự kiện
-		while (window.pollEvent(event))	{				// nếu đóng window
+		Event event;									// kiểm tra sự kiện
+		while (window.pollEvent(event))	{				
 			if (event.type == Event::Closed)
 				window.close();
 		}
-		window.clear(Color::Blue);
-		coreState.Update();
-		coreState.Render();
-		window.display();
-		if (quitGame) {
-			window.close();
+		window.clear(Color::Blue);  // tạo nền
+		coreState.Update(); // update sự kiện
+		coreState.Render(); // render đồ họa
+		window.display(); // hiển thị window
+		if (quitGame) { 
+			window.close(); // thoát game
 		}
 		Sleep(5);
 	}

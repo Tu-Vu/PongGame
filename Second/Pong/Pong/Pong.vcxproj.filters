@@ -57,6 +57,12 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="PaddleAI.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameAI.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -78,6 +84,15 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Score.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PaddleAI.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGameAI.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>

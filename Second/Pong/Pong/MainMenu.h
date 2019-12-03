@@ -1,6 +1,8 @@
 ﻿#ifndef _MAINMENU_H_
 #define _MAINMENU_H_
 #include "GameState.h"
+#include "MainGame.h"
+#include "MainGameAI.h"
 #include <iostream>
 using namespace std;
 class MainMenu: public TinyState{

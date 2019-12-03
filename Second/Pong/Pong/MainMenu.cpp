@@ -1,6 +1,4 @@
 ﻿#include "MainMenu.h"
-#include "MainGame.h"
-
 
 void MainMenu::Initialize(RenderWindow* window) {
 	this->selected = 0;  // lựa chọn ban đầu sẽ là 0
@@ -41,7 +39,7 @@ void MainMenu::Update(RenderWindow* window) {
 	if (Keyboard::isKeyPressed(Keyboard::Key::Return)) { // enter được nhấn
 		switch (this->selected){
 		case 0: {
-			 // vào game 1 người chơi
+			coreState.SetState(new MainGameAI()); // vào game 1 người chơi
 			break;
 		}
 		case 1: {

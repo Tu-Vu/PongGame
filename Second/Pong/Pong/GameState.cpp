@@ -2,7 +2,7 @@
 GameState::GameState() {
 	this->state = NULL;
 }
-GameState::~GameState() {
+GameState::~GameState() { 
 	if (this->state != NULL)
 		this->state->Destroy(this->window);
 }

@@ -15,11 +15,11 @@ private:
 	TinyState* state; 
 public:
 	GameState();
-	~GameState(); //hàm hủy
+	~GameState(); // gọi hàm hủy Destroy
 	void SetWindow(RenderWindow* window); // set window
-	void SetState(TinyState* state); // set state
-	void Update(); // update sự kiện
-	void Render(); // render đồ họa
+	void SetState(TinyState* state); // set state, gọi hàm Initialize
+	void Update(); // gọi hàm update sự kiện
+	void Render(); // gọi hàm render đồ họa
 };
 // biến global trong 1 file (.c/.cpp/.h) và truy cập biến này từ 1 file (.c/.cpp/.h) khác
 extern GameState coreState; 

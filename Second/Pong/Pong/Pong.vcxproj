@@ -131,7 +131,9 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="MainGameAI.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="PaddleAI.cpp" />
     <ClCompile Include="PaddlePlayer.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
@@ -140,7 +142,10 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="MainGameAI.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Paddle.h" />
+    <ClInclude Include="PaddleAI.h" />
     <ClInclude Include="PaddlePlayer.h" />
     <ClInclude Include="Score.h" />
   </ItemGroup>
