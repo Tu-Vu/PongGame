@@ -20,7 +20,7 @@ int main(){
 			if (event.type == Event::Closed)
 				window.close();
 		}
-		window.clear(Color::Blue);  // tạo nền
+		window.clear(Color::Black);  // tạo nền
 		
 		coreState.Update(); // update sự kiện
 		coreState.Render(); // render đồ họa

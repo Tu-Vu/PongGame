@@ -7,9 +7,8 @@ using namespace std;
 class Entity: public Sprite // clas sprite cho phép vẽ và render các object
 {
 protected:
-	Vector2f velocity; // vận tốc của 1 entity
-private:
 	Texture* texture; // texture cho 1 entity
+	Vector2f velocity; // vận tốc của 1 entity
 public:
 	Entity();
 	~Entity();

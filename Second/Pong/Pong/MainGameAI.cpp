@@ -5,6 +5,10 @@ void MainGameAI::Initialize(RenderWindow* window) {
 	this->font = new Font(); // setting font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
 
+	texture.loadFromFile("Graphics/Sprites/background.png"); // load background
+	background.setTexture(texture);
+
+
 	this->Score1 = new Score(*font, 64U); // tạo score người chơi 1
 	this->Score1->setPosition(window->getSize().x / 4, 10);
 
@@ -30,6 +34,7 @@ void MainGameAI::Update(RenderWindow* window) {
 	}
 }
 void MainGameAI::Render(RenderWindow* window) { // vẽ các object có trong trò chơi
+	window->draw(this->background);
 	window->draw(*this->BallObject);
 	window->draw(*this->Player1);
 	window->draw(*this->Player2);

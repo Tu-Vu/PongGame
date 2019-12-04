@@ -15,6 +15,9 @@ private:
 	Score* Score2; // điểm người chơi 2
 
 	Font* font;  // font chữ
+
+	Texture texture; // background
+	Sprite background;
 public:
 	virtual void Initialize(RenderWindow* window); // khởi tạo game
 	virtual void Update(RenderWindow* window); // update sự kiện
