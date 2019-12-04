@@ -21,9 +21,12 @@ int main(){
 				window.close();
 		}
 		window.clear(Color::Blue);  // tạo nền
+		
 		coreState.Update(); // update sự kiện
 		coreState.Render(); // render đồ họa
+		
 		window.display(); // hiển thị window
+	
 		if (quitGame) { 
 			window.close(); // thoát game
 		}

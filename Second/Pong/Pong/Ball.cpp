@@ -12,8 +12,14 @@ Ball::Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2) {
 	this->sound = new Sound(*this->buffer);
 }
 void Ball::Reset(RenderWindow* window) {
-	this->velocity.x = 1.f; // entity sẽ move theo velocity này
-	this->velocity.y = 1.f;
+	int angle;
+	srand((int)time(0)); // random số khác nhau mỗi lần chạy
+	do{
+		angle = 5 + rand() % (355 + 1 - 5);  // random só từ 5 đến 355
+	} while ((angle > 45 && angle < 135) || (angle > 225 && angle < 315) || (angle > 175 && angle < 185));	// giới hạn góc không quá thẳng đứng, không quá ngang
+	this->velocity.x = 1.f* cos(angle * 3.14 / 180); // entity sẽ move theo velocity này
+	this->velocity.y = 1.f* sin(angle * 3.14 / 180);
+
 	this->setPosition(window->getSize().x / 2, window->getSize().y / 2); // đặt lại vị trí  trung tâm
 	this->player1->setPosition(0, window->getSize().y / 2 - this->player1->getGlobalBounds().height / 2); // paddle 1 ở bên trái giữa màn hình
 	this->player2->setPosition(window->getSize().x - this->player2->getGlobalBounds().width, window->getSize().y / 2 - this->player2->getGlobalBounds().height / 2); // paddle 2 ở bên phải giữa
