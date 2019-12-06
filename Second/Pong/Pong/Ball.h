@@ -10,9 +10,11 @@ private:
 	Score* Score2; // điểm người chơi 2
 	Paddle* player1; // người chơi 1 
 	Paddle* player2; // người chơi 2 
+
 	SoundBuffer* buffer; // buffer cho âm thanh
 	Sound* sound; // âm thanh
 public:
+	int owning;
 	Ball(Score* Score1, Score* Score2,Paddle* player1, Paddle* player2); // khởi tạo bóng
 	~Ball();
 	virtual void Update(RenderWindow* window); // update sự kiện

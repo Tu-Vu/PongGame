@@ -1,5 +1,4 @@
 ﻿#include "MainMenu.h"
-
 void MainMenu::Initialize(RenderWindow* window) {
 	this->selected = 0;  // lựa chọn ban đầu sẽ là 0
 

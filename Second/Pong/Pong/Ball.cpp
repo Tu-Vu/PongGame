@@ -10,6 +10,8 @@ Ball::Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2) {
 	this->buffer = new SoundBuffer();
 	this->buffer->loadFromFile("Sounds/bounce.wav");
 	this->sound = new Sound(*this->buffer);
+
+	this->owning = 0;
 }
 void Ball::Reset(RenderWindow* window) {
 	int angle;
@@ -25,11 +27,19 @@ void Ball::Reset(RenderWindow* window) {
 	this->player2->setPosition(window->getSize().x - this->player2->getGlobalBounds().width, window->getSize().y / 2 - this->player2->getGlobalBounds().height / 2); // paddle 2 ở bên phải giữa
 }
 void Ball::Update(RenderWindow* window) {
-	if (this->CheckCollision(this->player1) || this->CheckCollision(this->player2)) {
+	if (this->CheckCollision(this->player1)) {
 		this->velocity.x *= 1.1f; // tăng tốc 10%
 		this->velocity.y *= 1.1f;
-		this->velocity.x *= -1; // nếu có va chạm với player 1 hay 2 thì đổi hướng x
+		this->velocity.x *= -1; // nếu có va chạm với player 1  thì đổi hướng x
 		this->sound->play(); // chạm bóng thì play sound
+		this->owning = 1;
+	}
+	if (this->CheckCollision(this->player2)) {
+		this->velocity.x *= 1.1f; // tăng tốc 10%
+		this->velocity.y *= 1.1f;
+		this->velocity.x *= -1; // nếu có va chạm với player 2 thì đổi hướng x
+		this->sound->play(); // chạm bóng thì play sound
+		this->owning = 2;
 	}
 	if (this->getPosition().y < 0 || this->getPosition().y + this->getGlobalBounds().height>Windows_Height) {
 		this->velocity.y *= -1; // nếu chạm nóc hoắc đáy thì đổi hướng y
