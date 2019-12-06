@@ -1,5 +1,5 @@
 # PongGame
-[The second pong game](https://github.com/Tu-Vu/PongGame) for oriented-object programming methods practice class
+[The second pong game](https://github.com/Tu-Vu/PongGame) was made for oriented-object programming methods practice class
 
 *   [The second pong game](https://github.com/Tu-Vu/PongGame) is free software/source code: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
