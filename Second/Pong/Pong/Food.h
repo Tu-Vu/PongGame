@@ -18,7 +18,8 @@ public:
 	Food(Score* Score1, Score* Score2, Ball* BallObject); // khởi tạo food
 	~Food();
 	virtual void Update(); // update sự kiện
-	void Reset(RenderWindow* window);
+	void RockReset(RenderWindow* window);
+	void WindReset(RenderWindow* window);
 };
 #endif
 

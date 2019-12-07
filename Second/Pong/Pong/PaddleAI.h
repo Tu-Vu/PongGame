@@ -15,6 +15,7 @@ public:
 	void SetBall(Ball* BallObject);  // set ball cho máy
 	virtual void Update(); // update sự kiện
 	void UpdateRock(int type);  // dùng cho rock map, update sự kiện cho vật cản, type = 0 đi xuống, = 1 đi lên
+	void UpdateWind();  
 };
 #endif
 

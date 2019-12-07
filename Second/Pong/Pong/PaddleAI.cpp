@@ -9,12 +9,16 @@ PaddleAI::PaddleAI(int playerNumber) {
 		this->Load("paddle1.png"); // load hình cho paddle
 		break;
 	}
-	case 2: { // người chơi 1
+	case 1: { // người chơi 2
+		this->Load("paddle2.png"); // load hình cho paddle
+		break;
+	}
+	case 2: { // vật cản đá
 		this->Load("rock.png"); // load hình cho paddle
 		break;
 	}
-	default: { // người chơi 2
-		this->Load("paddle2.png"); // load hình cho paddle
+	case 3: { // portal gió
+		this->Load("windportal.png"); // load hình cho paddle
 		break;
 	}
 	}
@@ -59,4 +63,7 @@ void PaddleAI::UpdateRock(int type) {
 		this->move(0, -1); // -1 y lại cho paddle
 		this->checkrock = 1;
 	}
+}
+void PaddleAI::UpdateWind() {
+
 }

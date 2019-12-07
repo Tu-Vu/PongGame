@@ -29,6 +29,23 @@ Ball::Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2, Paddl
 
 	this->owning = 0;
 }
+Ball::Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2, Paddle* portal1, Paddle* portal2, Paddle* portal3, Paddle* portal4) {
+	this->Load("ball.png"); // load hình ảnh vô texture 
+	this->Score1 = Score1;
+	this->Score2 = Score2;
+	this->player1 = player1;
+	this->player2 = player2;
+	this->portal1 = portal1; 
+	this->portal2 = portal2; 
+	this->portal3 = portal3;
+	this->portal4 = portal4;
+
+	this->buffer = new SoundBuffer();
+	this->buffer->loadFromFile("Sounds/bounce.wav");
+	this->sound = new Sound(*this->buffer);
+
+	this->owning = 0;
+}
 void Ball::Reset(RenderWindow* window) {
 	int angle;
 	srand((int)time(0)); // random số khác nhau mỗi lần chạy
@@ -61,6 +78,42 @@ void Ball::RockReset(RenderWindow* window) {
 	this->rock1->setPosition(window->getSize().x / 2 - 200, window->getSize().y / 2 - 200); // vật cản cho rock map ở phía trên bên phải
 	this->rock2->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 200); // vật cản cho rock map ở chính giữa bên dưới
 	this->rock3->setPosition(window->getSize().x / 2 + 200, window->getSize().y / 2 - 200); //// vật cản cho rock map ở phía trên bên trái
+}
+void Ball::WindReset(RenderWindow* window) {
+	int random;
+	srand((int)time(0)); // random số khác nhau mỗi lần chạy
+	random = 1 + rand() % (4 + 1 - 1);  // random só từ 1 đến 4
+	if (random == 1) {
+		this->velocity.x = 1.f; // entity sẽ move theo velocity này
+		this->velocity.y = 0.3f;
+	}
+	else if (random == 2) {
+		this->velocity.x = -1.f; // entity sẽ move theo velocity này
+		this->velocity.y = -0.3f;
+	}
+	else if (random == 3) {
+		this->velocity.x = -1.f; // entity sẽ move theo velocity này
+		this->velocity.y = 0.3f;
+	}
+	else {
+		this->velocity.x = 1.f; // entity sẽ move theo velocity này
+		this->velocity.y = -0.3f;
+	}
+
+	this->owning = 0;
+
+	this->setOrigin(this->getGlobalBounds().width / 2, this->getGlobalBounds().height / 2);
+	this->setPosition(window->getSize().x / 2, window->getSize().y / 2); // đặt lại vị trí  trung tâm
+	this->player1->setPosition(0, window->getSize().y / 2 - this->player1->getGlobalBounds().height / 2); // paddle 1 ở bên trái giữa màn hình
+	this->player2->setPosition(window->getSize().x - this->player2->getGlobalBounds().width, window->getSize().y / 2 - this->player2->getGlobalBounds().height / 2); // paddle 2 ở bên phải giữa
+	this->portal1->setOrigin(this->portal1->getGlobalBounds().width / 2, this->portal1->getGlobalBounds().height / 2);
+	this->portal2->setOrigin(this->portal2->getGlobalBounds().width / 2, this->portal2->getGlobalBounds().height / 2);
+	this->portal3->setOrigin(this->portal3->getGlobalBounds().width / 2, this->portal3->getGlobalBounds().height / 2);
+	this->portal4->setOrigin(this->portal4->getGlobalBounds().width / 2, this->portal4->getGlobalBounds().height / 2);
+	this->portal1->setPosition(window->getSize().x / 2, 63); 
+	this->portal2->setPosition(window->getSize().x / 2, 190); 
+	this->portal3->setPosition(window->getSize().x / 2, 390); 
+	this->portal4->setPosition(window->getSize().x / 2, window->getSize().y - 63); 
 }
 void Ball::Update(RenderWindow* window) {
 	if (this->CheckCollision(this->player1)) {
@@ -127,18 +180,54 @@ void Ball::RockUpdate(RenderWindow* window) {
 }
 void Ball::WindUpdate(RenderWindow* window) {
 	if (this->CheckCollision(this->player1)) {
-		this->velocity.x *= 1.48f; // tăng tốc 48%
-		this->velocity.y *= 1.48f;
+		this->velocity.x *= 1.248f; // tăng tốc 24,8%
 		this->velocity.x *= -1; // nếu có va chạm với player 1  thì đổi hướng x
 		this->sound->play(); // chạm bóng thì play sound
 		this->owning = 1;
 	}
 	if (this->CheckCollision(this->player2)) {
-		this->velocity.x *= 1.48f; // tăng tốc 48%
-		this->velocity.y *= 1.48f;
+		this->velocity.x *= 1.248f; // tăng tốc 24,8%
 		this->velocity.x *= -1; // nếu có va chạm với player 2 thì đổi hướng x
 		this->sound->play(); // chạm bóng thì play sound
 		this->owning = 2;
+	}
+	if (this->CheckCollision(this->portal1)) { // chạm phải portal 1 thì đi ra từ portal 3
+		if (this->owning==1) {
+			this->setPosition(window->getSize().x / 2 + 80 , 390);
+		}
+		else {
+			this->setPosition(window->getSize().x / 2 - 80, 390);
+		}
+		this->sound->play(); // chạm bóng thì play sound
+	}
+	if(this->CheckCollision(this->portal2)) { // chạm phải portal 2 thì đi ra từ portal 4
+		if (this->owning == 1) {
+			this->setPosition(window->getSize().x / 2 + 80, window->getSize().y - 63);
+		}
+		else {
+			this->setPosition(window->getSize().x / 2 -80, window->getSize().y - 63);
+		}
+		this->sound->play(); // chạm bóng thì play sound
+	}
+	if (this->CheckCollision(this->portal3)) { // chạm phải portal 3 thì đi ra từ portal 1
+		if (this->owning == 1) {
+			this->setPosition(window->getSize().x / 2 - 80, 63);
+		}
+		else {
+			this->setPosition(window->getSize().x / 2 -80, 63);
+		}
+		
+		this->sound->play(); // chạm bóng thì play sound
+	}
+	if (this->CheckCollision(this->portal4)) { // chạm phải portal 4 thì đi ra từ portal 2
+		if (this->owning == 1) {
+			this->setPosition(window->getSize().x / 2 +80, 190);
+		}
+		else {
+			this->setPosition(window->getSize().x / 2 -80, 190);
+		}
+		
+		this->sound->play(); // chạm bóng thì play sound
 	}
 	if (this->getPosition().y < 0 || this->getPosition().y + this->getGlobalBounds().height>Windows_Height) {
 		this->velocity.y *= -1; // nếu chạm nóc hoắc đáy thì đổi hướng y

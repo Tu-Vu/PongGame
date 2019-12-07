@@ -13,10 +13,14 @@ private:
 	Ball* BallObject; // bóng
 	Score* Score1; // điểm người chơi 1
 	Score* Score2; // điểm người chơi 2
+
 	int prevalue1; // lưu lại điểm người chơi 1 từ element state
 	int prevalue2;  // lưu lại điểm người chơi 2 từ element state
-	Food* FoodObject;
-
+	PaddleAI* Portal1;  
+	PaddleAI* Portal2;  
+	PaddleAI* Portal3;  
+	PaddleAI* Portal4;  
+	Food* FoodObject[8]; // vật phẩm cộng điểm
 	Font* font;  // font chữ
 
 	Texture texture; // background
