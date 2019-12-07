@@ -6,8 +6,6 @@
 #include "Score.h"
 #include "MainMenu.h"
 #include "Food.h"
-#include <vector>
-using namespace std;
 class RockMap : public TinyState {
 private:
 	PaddlePlayer* Player1;  // người chơi 1
@@ -15,13 +13,13 @@ private:
 	Ball* BallObject; // bóng
 	Score* Score1; // điểm người chơi 1
 	Score* Score2; // điểm người chơi 2
+	
 	int prevalue1; // lưu lại điểm người chơi 1 từ element state
 	int prevalue2;  // lưu lại điểm người chơi 2 từ element state
 	PaddleAI* Rock1;  // vật cản
 	PaddleAI* Rock2;  // vật cản
 	PaddleAI* Rock3;  // vật cản
 	Food* FoodObject[8]; // vật phẩm cộng điểm
-
 	Font* font;  // font chữ
 
 	Texture texture; // background
