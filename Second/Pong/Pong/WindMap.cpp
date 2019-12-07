@@ -1,9 +1,10 @@
-﻿#include "FireMap.h"
-FireMap::FireMap(int Score1, int Score2) {
+﻿#include "WindMap.h"
+
+WindMap::WindMap(int Score1, int Score2) {
 	this->prevalue1 = Score1;
 	this->prevalue2 = Score2;
 }
-void FireMap::Initialize(RenderWindow* window) {
+void WindMap::Initialize(RenderWindow* window) {
 	this->Player1 = new PaddlePlayer(0); // tạo người chơi 1
 
 	this->Player2 = new PaddlePlayer(1); // tạo người chơi 2
@@ -11,56 +12,48 @@ void FireMap::Initialize(RenderWindow* window) {
 	this->font = new Font(); // setting font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
 
-	texture.loadFromFile("Graphics/Sprites/backgroundfire.png"); // load background
+	texture.loadFromFile("Graphics/Sprites/backgroundwind.png"); // load background
 	background.setTexture(texture);
 
 	this->Score1 = new Score(*font, 64U); // tạo score người chơi 1
 	this->Score1->setPosition(window->getSize().x / 4, 10);
-	this->Score1->value = prevalue1;
 
 	this->Score2 = new Score(*font, 64U); // tạo score người chơi 2
 	this->Score2->setPosition(window->getSize().x / 1.4, 10);
-	this->Score2->value = prevalue2;
 
 	this->BallObject = new Ball(this->Score1, this->Score2, this->Player1, this->Player2); // tạo bóng
 	this->BallObject->Reset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa
 
-	//this->FoodObject = new Food(this->Score1, this->Score2, this->BallObject);
-	//this->FoodObject->Reset(window);
+
+
 }
-void FireMap::Update(RenderWindow* window) {
+void WindMap::Update(RenderWindow* window) {
 	this->Player1->Update(); // update sự kiện người chơi 1
 	this->Player2->Update(); // update sự kiện người chơi 2
-	this->BallObject->Update(window); // update bóng
+	this->BallObject->WindUpdate(window); // update bóng
 	this->Score1->Update(); // update điểm người chơi 1
 	this->Score2->Update(); // update điểm người chơi 2
 
-	//if (FoodObject->eaten == false) {
-	//	this->FoodObject->Update();
-	//}
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::Escape)) {  // nếu ấn thoát thì quay về menu
 		coreState.SetState(new MainMenu());
 	}
 }
-void FireMap::Render(RenderWindow* window) { // vẽ các object có trong trò chơi
+void WindMap::Render(RenderWindow* window) { // vẽ các object có trong trò chơi
 	window->draw(this->background);
 	window->draw(*this->BallObject);
 	window->draw(*this->Player1);
 	window->draw(*this->Player2);
 	window->draw(*this->Score1);
 	window->draw(*this->Score2);
-	//if (FoodObject->eaten == false) {
-	//	window->draw(*this->FoodObject);
-	//}
+
 }
-void FireMap::Destroy(RenderWindow* window) {
+void WindMap::Destroy(RenderWindow* window) {
 	delete this->Player1;
 	delete this->Player2;
 	delete this->BallObject;
 	delete this->Score1;
 	delete this->Score2;
 	delete this->font;
-	delete this->FoodObject;
 
 }

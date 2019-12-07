@@ -1,12 +1,12 @@
-﻿#ifndef _FIREMAP_H_
-#define _FIREMAP_H_
+﻿#ifndef _WINDMAP_H_
+#define _WINDMAP_H_
 #include "GameState.h"
 #include "PaddlePlayer.h"
 #include "Ball.h"
 #include "Score.h"
 #include "MainMenu.h"
 #include "Food.h"
-class FireMap : public TinyState {
+class WindMap : public TinyState {
 private:
 	PaddlePlayer* Player1;  // người chơi 1
 	PaddlePlayer* Player2; // người chơi 2
@@ -22,7 +22,7 @@ private:
 	Texture texture; // background
 	Sprite background;
 public:
-	FireMap(int Score1, int Score2); // lấy giá trị điểm từ element state khi khởi tạo map
+	WindMap(int Score1, int Score2); // lấy giá trị điểm từ element state khi khởi tạo map
 	virtual void Initialize(RenderWindow* window); // khởi tạo game
 	virtual void Update(RenderWindow* window); // update sự kiện
 	virtual void Render(RenderWindow* window); // render đồ họa

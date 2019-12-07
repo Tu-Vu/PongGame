@@ -138,7 +138,10 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PaddleAI.cpp" />
     <ClCompile Include="PaddlePlayer.cpp" />
+    <ClCompile Include="RockMap.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="WaterMap.cpp" />
+    <ClCompile Include="WindMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -153,7 +156,10 @@
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="PaddleAI.h" />
     <ClInclude Include="PaddlePlayer.h" />
+    <ClInclude Include="RockMap.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="WaterMap.h" />
+    <ClInclude Include="WindMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
