@@ -180,13 +180,13 @@ void Ball::RockUpdate(RenderWindow* window) {
 }
 void Ball::WindUpdate(RenderWindow* window) {
 	if (this->CheckCollision(this->player1)) {
-		this->velocity.x *= 1.248f; // tăng tốc 24,8%
+		this->velocity.x *= 1.148f; // tăng tốc 14,8%
 		this->velocity.x *= -1; // nếu có va chạm với player 1  thì đổi hướng x
 		this->sound->play(); // chạm bóng thì play sound
 		this->owning = 1;
 	}
 	if (this->CheckCollision(this->player2)) {
-		this->velocity.x *= 1.248f; // tăng tốc 24,8%
+		this->velocity.x *= 1.148f; // tăng tốc 14,8%
 		this->velocity.x *= -1; // nếu có va chạm với player 2 thì đổi hướng x
 		this->sound->play(); // chạm bóng thì play sound
 		this->owning = 2;
@@ -235,11 +235,11 @@ void Ball::WindUpdate(RenderWindow* window) {
 	}
 	if (this->getPosition().x <= 0) { // chạm tường trái
 		this->Score2->ScoreUp();
-		this->Reset(window); // đặt lại vị trí trung tâm
+		this->WindReset(window); // đặt lại vị trí trung tâm
 	}
 	if (this->getPosition().x > window->getSize().x) { // chạm tường phải
 		this->Score1->ScoreUp();
-		this->Reset(window); // đặt lại vị trí trung tâm
+		this->WindReset(window); // đặt lại vị trí trung tâm
 	}
 	Entity::Update(); //move entity theo velocity
 }

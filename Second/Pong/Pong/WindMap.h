@@ -16,7 +16,7 @@ private:
 
 	int prevalue1; // lưu lại điểm người chơi 1 từ element state
 	int prevalue2;  // lưu lại điểm người chơi 2 từ element state
-	PaddleAI* Portal1;  
+	PaddleAI* Portal1;  // cổng gió
 	PaddleAI* Portal2;  
 	PaddleAI* Portal3;  
 	PaddleAI* Portal4;  

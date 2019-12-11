@@ -26,9 +26,11 @@ void RockMap::Initialize(RenderWindow* window) {
 
 	this->Score1 = new Score(*font, 64U); // tạo score người chơi 1
 	this->Score1->setPosition(window->getSize().x / 4, 10);
+	this->Score1->value = this->prevalue1;
 
 	this->Score2 = new Score(*font, 64U); // tạo score người chơi 2
 	this->Score2->setPosition(window->getSize().x / 1.4, 10);
+	this->Score2->value = this->prevalue2;
 
 	this->BallObject = new Ball(this->Score1, this->Score2, this->Player1, this->Player2, this->Rock1,this->Rock2, this->Rock3); // tạo bóng
 	this->BallObject->RockReset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa, các vật cản ở vị trí ban đầu

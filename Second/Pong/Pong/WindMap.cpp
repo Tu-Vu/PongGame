@@ -10,16 +10,12 @@ void WindMap::Initialize(RenderWindow* window) {
 	this->Player2 = new PaddlePlayer(1); // tạo người chơi 2
 
 	this->Portal1 = new PaddleAI(3);
-	this->Portal1->SetBall(this->BallObject); // cho máy ball cần chơi
 
 	this->Portal2 = new PaddleAI(3);
-	this->Portal2->SetBall(this->BallObject); // cho máy ball cần chơi
 
 	this->Portal3 = new PaddleAI(3);
-	this->Portal3->SetBall(this->BallObject); // cho máy ball cần chơi
 
 	this->Portal4 = new PaddleAI(3);
-	this->Portal4->SetBall(this->BallObject); // cho máy ball cần chơi
 
 	this->font = new Font(); // setting font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
@@ -29,9 +25,11 @@ void WindMap::Initialize(RenderWindow* window) {
 
 	this->Score1 = new Score(*font, 64U); // tạo score người chơi 1
 	this->Score1->setPosition(window->getSize().x / 4, 10);
+	this->Score1->value = this->prevalue1;
 
 	this->Score2 = new Score(*font, 64U); // tạo score người chơi 2
 	this->Score2->setPosition(window->getSize().x / 1.4, 10);
+	this->Score2->value = this->prevalue2;
 
 	this->BallObject = new Ball(this->Score1, this->Score2, this->Player1, this->Player2, this->Portal1, this->Portal2, this->Portal3, this->Portal4); // tạo bóng
 	this->BallObject->WindReset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa, các portal ở vị trí ban đầu
