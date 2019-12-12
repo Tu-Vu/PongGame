@@ -46,7 +46,7 @@ void WindMap::Update(RenderWindow* window) {
 	this->Score1->Update(); // update điểm người chơi 1
 	this->Score2->Update(); // update điểm người chơi 2
 	for (int i = 0; i < 9; i++) { // update vật phẩm cộng điểm
-		if (FoodObject[i]->eaten == false) {
+		if (this->FoodObject[i]->eaten == false) {
 			this->FoodObject[i]->Update();
 		}
 	}
@@ -65,7 +65,7 @@ void WindMap::Render(RenderWindow* window) { // vẽ các object có trong trò 
 	window->draw(*this->Portal3);
 	window->draw(*this->Portal4);
 	for (int i = 0; i < 9; i++) {
-		if (FoodObject[i]->eaten == false) {
+		if (this->FoodObject[i]->eaten == false) {
 			window->draw(*this->FoodObject[i]);
 		}
 	}
@@ -84,6 +84,6 @@ void WindMap::Destroy(RenderWindow* window) {
 	delete this->Portal3;
 	delete this->Portal4;
 	for (int i = 0; i < 9; i++) {
-		delete FoodObject[i];
+		delete this->FoodObject[i];
 	}
 }

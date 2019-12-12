@@ -50,7 +50,7 @@ void RockMap::Update(RenderWindow* window) {
 	this->Rock2->UpdateRock(1); // update vật cản loại 1
 	this->Rock3->UpdateRock(0); // update vật cản loại 0
 	for (int i = 0; i < 9; i++) { // update vật phẩm cộng điểm
-		if (FoodObject[i]->eaten == false) {
+		if (this->FoodObject[i]->eaten == false) {
 			this->FoodObject[i]->Update();
 		}
 	}
@@ -68,7 +68,7 @@ void RockMap::Render(RenderWindow* window) { // vẽ các object có trong trò 
 	window->draw(*this->Rock2);
 	window->draw(*this->Rock3);
 	for (int i = 0; i < 9; i++) {
-		if (FoodObject[i]->eaten == false) {
+		if (this->FoodObject[i]->eaten == false) {
 			window->draw(*this->FoodObject[i]);
 		}
 	}
@@ -86,6 +86,6 @@ void RockMap::Destroy(RenderWindow* window) {
 	delete this->Rock2;
 	delete this->Rock3;
 	for (int i = 0; i < 9; i++) {
-		delete FoodObject[i];
+		delete this->FoodObject[i];
 	}
 }

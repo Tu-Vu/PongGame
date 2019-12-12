@@ -21,6 +21,7 @@ private:
 	PaddleAI* Portal3;  
 	PaddleAI* Portal4;  
 	Food* FoodObject[8]; // vật phẩm cộng điểm
+
 	Font* font;  // font chữ
 
 	Texture texture; // background

@@ -10,6 +10,7 @@ public:
 	int value; // trị số điểm
 	Score(Font&, unsigned int size); // set điểm
 	void ScoreUp(); // tăng điểm
+	void ScoreDown(); // giảm điểm
 	void Update(); // update điểm
 };
 #endif

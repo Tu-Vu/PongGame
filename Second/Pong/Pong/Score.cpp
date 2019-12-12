@@ -6,6 +6,9 @@ Score::Score(Font& font,unsigned int size) :Text("",font,size) { // kế thừa 
 void Score::ScoreUp(){
 	this->value +=1; // tăng điểm +1
 }
+void Score::ScoreDown() {
+	this->value -= 1; // giảm điểm +1
+}
 void Score::Update() {
 	this->setString(to_string(this->value)); // convert int value thành string để update hình vẽ
 }
