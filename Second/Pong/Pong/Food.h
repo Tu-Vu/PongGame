@@ -15,7 +15,6 @@ private:
 	int type;
 public:
 	bool eaten; // cho biết food đã bị ăn chưa
-	bool reborn; // dùng cho water map
 	Food(Score* Score1, Score* Score2, Ball* BallObject); // khởi tạo food
 	Food(Score* Score1, Score* Score2, Ball* BallObject, int type); 
 	~Food();

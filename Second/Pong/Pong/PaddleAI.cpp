@@ -21,6 +21,14 @@ PaddleAI::PaddleAI(int playerNumber) {
 		this->Load("windportal.png"); // load hình cho paddle
 		break;
 	}
+	case 4: { // vật cản lửa
+		this->Load("fire.png"); // load hình cho paddle
+		break;
+	}
+	case 5: {
+		this->Load("firegate.png"); // load hình ảnh vô texture 
+		break;
+	}
 	}
 }
 void PaddleAI::SetBall(Ball* BallObject) {
@@ -63,7 +71,4 @@ void PaddleAI::UpdateRock(int type) {
 		this->move(0, -1); // -1 y lại cho paddle
 		this->checkrock = 1;
 	}
-}
-void PaddleAI::UpdateWind() {
-
 }

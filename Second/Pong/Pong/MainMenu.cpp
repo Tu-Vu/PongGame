@@ -51,8 +51,8 @@ void MainMenu::Update(RenderWindow* window) {
 		}
 		}
 	}
-	this->upKey = Keyboard::isKeyPressed(Keyboard::Key::Up); // cập nhật phím upkey
-	this->downKey = Keyboard::isKeyPressed(Keyboard::Key::Down); // // cập nhật phím downkey
+	this->upKey = (Keyboard::isKeyPressed(Keyboard::Key::Up)|| Keyboard::isKeyPressed(Keyboard::Key::W)); // cập nhật phím upkey
+	this->downKey = (Keyboard::isKeyPressed(Keyboard::Key::Down)|| Keyboard::isKeyPressed(Keyboard::Key::S)); // // cập nhật phím downkey
 }
 void MainMenu::Render(RenderWindow* window) {
 	this->play1->setFillColor(Color::White); // default color là white

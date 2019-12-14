@@ -24,6 +24,7 @@ Food::Food(Score* Score1, Score* Score2, Ball* Ball, int type) { // dùng cho wa
 	this->Score2 = Score2;
 	this->BallObject = Ball;
 
+	this->setOrigin(this->getGlobalBounds().width /2, this->getGlobalBounds().height / 2);
 	this->buffer = new SoundBuffer();
 	this->buffer->loadFromFile("Sounds/bounce.wav");
 	this->sound = new Sound(*this->buffer);

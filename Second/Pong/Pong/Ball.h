@@ -20,6 +20,12 @@ private:
 	Paddle* portal3; // portal dùng cho windmap
 	Paddle* portal4; // portal dùng cho windmap
 
+	Paddle* FireGate;
+	Paddle* fire1; // vật cản dùng cho firemap
+	Paddle* fire2; // vật cản dùng cho firemap
+	Paddle* fire3; // vật cản dùng cho firemap
+	Paddle* fire4; // vật cản dùng cho firemap
+
 	SoundBuffer* buffer; // buffer cho âm thanh
 	Sound* sound; // âm thanh
 public:
@@ -27,13 +33,17 @@ public:
 	Ball(Score* Score1, Score* Score2,Paddle* player1, Paddle* player2); // khởi tạo bóng
 	Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2, Paddle* rock1, Paddle* rock2, Paddle* rock3); // khởi tạo bóng cho rock map
 	Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2, Paddle* portal1, Paddle* portal2, Paddle* portal3, Paddle* portal4); // khởi tạo bóng cho wind map
+	Ball(Score* Score1, Score* Score2, Paddle* player1, Paddle* player2, Paddle* fire1, Paddle* fire2, Paddle* fire3, Paddle* fire4, Paddle* FireGate); // khởi tạo bóng cho fire map
 	~Ball();
 	virtual void Update(RenderWindow* window); // update sự kiện
 	void RockUpdate(RenderWindow* window); // update sự kiện cho map rock
 	void WindUpdate(RenderWindow* window); // update sự kiện cho map wind
+	void FireUpdate(RenderWindow* window);
+	void Bounce(float x, float y);
 	void Reset(RenderWindow* window);  // reset (set) lại bóng, paddle
 	void RockReset(RenderWindow* window); // reset (set) lại bóng, paddle, vật cản
 	void WindReset(RenderWindow* window); // reset (set) lại bóng, paddle, portal
+	void FireReset(RenderWindow* window);
 };
 #endif
 

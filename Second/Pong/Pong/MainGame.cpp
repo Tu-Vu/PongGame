@@ -21,10 +21,9 @@ void MainGame::Initialize(RenderWindow* window) {
 	this->BallObject->Reset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa
 
 	for (int i = 0; i < 6; i++) {
-		//int type;
-		//type = 1 + rand() % (4 + 1 - 1);  // random só từ 1 đến 4
-		//this->ElementObject[i] = new Element(this->Score1,this->Score2,this->BallObject, type);
-		this->ElementObject[i] = new Element(this->Score1, this->Score2, this->BallObject, 2);// test
+		int type;
+		type = 1 + rand() % (4 + 1 - 1);  // random só từ 1 đến 4
+		this->ElementObject[i] = new Element(this->Score1,this->Score2,this->BallObject, type);
 		if (i == 0)
 			this->ElementObject[i]->setPosition(window->getSize().x / 2 + 100, window->getSize().y / 2 + 200);
 		else if (i == 1)

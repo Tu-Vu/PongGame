@@ -8,19 +8,27 @@ PaddlePlayer::PaddlePlayer(int playerNumber) {
 		this->Load("paddle1.png"); // load hình cho paddle
 		break;
 	}
-	default: { // người chơi 2
+	case 1: { // người chơi 2
 		this->Load("paddle2.png"); // load hình cho paddle
+		break;
+	}
+	case 2: { // người chơi 1 dùng cho fire map
+		this->Load("paddle1_fire.png"); // load hình cho paddle
+		break;
+	}
+	case 3: { // người chơi 2 dùng cho fire map
+		this->Load("paddle2_fire.png"); // load hình cho paddle
 		break;
 	}
 	}
 }
 void PaddlePlayer::Update() {
 	switch (this->playerNumber) { // mỗi người chơi có control khác nhau
-	case 0: { // người chơi 1
+	case 0: case 2: { // người chơi 1
 		this->velocity.y = Keyboard::isKeyPressed(Keyboard::Key::S) - Keyboard::isKeyPressed(Keyboard::Key::W); 
 		break;
 	}
-	default: { // người chơi 2
+	case 1: case 3:{ // người chơi 2
 		this->velocity.y = Keyboard::isKeyPressed(Keyboard::Key::Down) - Keyboard::isKeyPressed(Keyboard::Key::Up);
 		break;
 	}
