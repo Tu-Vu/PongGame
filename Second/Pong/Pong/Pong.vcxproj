@@ -130,6 +130,7 @@
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FireMap.cpp" />
+    <ClCompile Include="FireMapAI.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
@@ -139,15 +140,19 @@
     <ClCompile Include="PaddleAI.cpp" />
     <ClCompile Include="PaddlePlayer.cpp" />
     <ClCompile Include="RockMap.cpp" />
+    <ClCompile Include="RockMapAI.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="WaterMap.cpp" />
+    <ClCompile Include="WaterMapAI.cpp" />
     <ClCompile Include="WindMap.cpp" />
+    <ClCompile Include="WindMapAI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FireMap.h" />
+    <ClInclude Include="FireMapAI.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="MainGame.h" />
@@ -157,9 +162,12 @@
     <ClInclude Include="PaddleAI.h" />
     <ClInclude Include="PaddlePlayer.h" />
     <ClInclude Include="RockMap.h" />
+    <ClInclude Include="RockMapAI.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="WaterMap.h" />
+    <ClInclude Include="WaterMapAI.h" />
     <ClInclude Include="WindMap.h" />
+    <ClInclude Include="WindMapAI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

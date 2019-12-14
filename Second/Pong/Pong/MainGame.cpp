@@ -1,10 +1,6 @@
 ﻿#include "MainGame.h"
 
 void MainGame::Initialize(RenderWindow* window) {
-	this->Player1 = new PaddlePlayer(0); // tạo người chơi 1
-
-	this->Player2 = new PaddlePlayer(1); // tạo người chơi 2
-
 	this->font = new Font(); // setting font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
 
@@ -16,6 +12,10 @@ void MainGame::Initialize(RenderWindow* window) {
 
 	this->Score2 = new Score(*font, 64U); // tạo score người chơi 2
 	this->Score2->setPosition(window->getSize().x / 1.4, 10);
+
+	this->Player1 = new PaddlePlayer(0); // tạo người chơi 1
+
+	this->Player2 = new PaddlePlayer(1); // tạo người chơi 2
 
 	this->BallObject = new Ball(this->Score1, this->Score2, this->Player1, this->Player2); // tạo bóng
 	this->BallObject->Reset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa
@@ -37,7 +37,6 @@ void MainGame::Initialize(RenderWindow* window) {
 		else if (i == 5)
 			this->ElementObject[i]->setPosition(window->getSize().x / 2 + 100, window->getSize().y / 2 - 200);
 	}
-
 }
 void MainGame::Update(RenderWindow* window) {
 	this->Player1->Update(); // update sự kiện người chơi 1
@@ -71,5 +70,4 @@ void MainGame::Destroy(RenderWindow* window) {
 	delete this->BallObject;
 	delete this->Score1;
 	delete this->Score2;
-	//delete this->font; 
 }

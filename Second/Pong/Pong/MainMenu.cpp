@@ -5,22 +5,17 @@ void MainMenu::Initialize(RenderWindow* window) {
 	this->font = new Font(); // tạo font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
 
-	this->title = new Text("Ping Pong", *this->font, 99U); // nội dung & size của font
-	this->title->setOrigin(this->title->getGlobalBounds().width / 2, this->title->getGlobalBounds().height / 2); // set origin ở giữa vật (thay vì topleft)
-	this->title->setPosition(window->getSize().x / 2, window->getSize().y / 10); // set vị trí
-
-	this->play1 = new Text("1 PLAYER", *this->font, 55U);
-	this->play1->setOrigin(this->play1->getGlobalBounds().width / 2, this->play1->getGlobalBounds().height / 2);
-	this->play1->setPosition(window->getSize().x / 2, window->getSize().y / 2 -16);
-
+	this->play1 = new Text("1 PLAYER", *this->font, 55U);  // nội dung & size của font
+	this->play1->setOrigin(this->play1->getGlobalBounds().width / 2, this->play1->getGlobalBounds().height / 2); // set origin ở giữa vật (thay vì topleft)
+	this->play1->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 34); // set vị trí
 
 	this->play2 = new Text("2 PLAYERS", *this->font, 55U);
 	this->play2->setOrigin(this->play2->getGlobalBounds().width / 2, this->play2->getGlobalBounds().height / 2);
-	this->play2->setPosition(window->getSize().x / 2, window->getSize().y / 2 +60);
+	this->play2->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 110);
 
 	this->quit = new Text("QUIT", *this->font, 55U);
 	this->quit->setOrigin(this->quit->getGlobalBounds().width / 2, this->quit->getGlobalBounds().height / 2);
-	this->quit->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 136);
+	this->quit->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 186);
 }
 void MainMenu::Update(RenderWindow* window) {
 	if ((Keyboard::isKeyPressed(Keyboard::Key::Up) || Keyboard::isKeyPressed(Keyboard::Key::W)) && !this->upKey) { // phím lên đang được nhấn, upkey = false
@@ -73,14 +68,12 @@ void MainMenu::Render(RenderWindow* window) {
 	}
 	}
 	// vẽ các text
-	window->draw(*this->title);
 	window->draw(*this->play1);
 	window->draw(*this->play2);
 	window->draw(*this->quit);
 }
 void MainMenu::Destroy(RenderWindow* window) {
 	delete this->font;
-	delete this->title;
 	delete this->play1;
 	delete this->play2;
 	delete this->quit;

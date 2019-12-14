@@ -93,6 +93,18 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
+    <ClCompile Include="FireMapAI.cpp">
+      <Filter>Source Files\States\States_AI</Filter>
+    </ClCompile>
+    <ClCompile Include="RockMapAI.cpp">
+      <Filter>Source Files\States\States_AI</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterMapAI.cpp">
+      <Filter>Source Files\States\States_AI</Filter>
+    </ClCompile>
+    <ClCompile Include="WindMapAI.cpp">
+      <Filter>Source Files\States\States_AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -142,6 +154,18 @@
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="FireMapAI.h">
+      <Filter>Header Files\States\States_AI</Filter>
+    </ClInclude>
+    <ClInclude Include="RockMapAI.h">
+      <Filter>Header Files\States\States_AI</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterMapAI.h">
+      <Filter>Header Files\States\States_AI</Filter>
+    </ClInclude>
+    <ClInclude Include="WindMapAI.h">
+      <Filter>Header Files\States\States_AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

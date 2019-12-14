@@ -13,6 +13,7 @@ private:
 	Ball* BallObject; // bóng
 	Score* Score1; // điểm người chơi 1
 	Score* Score2; // điểm người chơi 2
+
 	Element* ElementObject[5];
 
 	Font* font;  // font chữ

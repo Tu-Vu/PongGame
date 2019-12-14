@@ -29,6 +29,10 @@ PaddleAI::PaddleAI(int playerNumber) {
 		this->Load("firegate.png"); // load hình ảnh vô texture 
 		break;
 	}
+	case  6: { // case 3 của PaddlePlayer
+		this->Load("paddle2_fire.png"); // load hình cho paddle
+		break;
+	}
 	}
 }
 void PaddleAI::SetBall(Ball* BallObject) {

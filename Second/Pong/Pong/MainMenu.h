@@ -8,7 +8,6 @@ using namespace std;
 class MainMenu: public TinyState{
 private:
 	Font* font; // chọn font
-	Text* title; // title game
 	Text* play1; // text chế độ 1 người chơi
 	Text* play2; // text chế độ 2 người chơi
 	Text* quit; // text thoát

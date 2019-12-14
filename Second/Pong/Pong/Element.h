@@ -16,6 +16,7 @@ public:
 	Element(Score* Score1, Score* Score2,Ball* BallObject,int type);
 	~Element();
 	virtual void Update(); // update sự kiện
+	void UpdateAI(); // update sự kiện
 };
 #endif
 

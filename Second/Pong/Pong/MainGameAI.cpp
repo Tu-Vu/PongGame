@@ -1,13 +1,11 @@
 ﻿#include "MainGameAI.h"
 
-
 void MainGameAI::Initialize(RenderWindow* window) {
 	this->font = new Font(); // setting font
 	this->font->loadFromFile("Graphics/Nexa-Black.ttf");
 
 	texture.loadFromFile("Graphics/Sprites/background.png"); // load background
 	background.setTexture(texture);
-
 
 	this->Score1 = new Score(*font, 64U); // tạo score người chơi 1
 	this->Score1->setPosition(window->getSize().x / 4, 10);
@@ -22,6 +20,24 @@ void MainGameAI::Initialize(RenderWindow* window) {
 	this->BallObject = new Ball(this->Score1, this->Score2, this->Player1, this->Player2); // tạo bóng
 	this->Player2->SetBall(this->BallObject); // cho máy ball cần chơi
 	this->BallObject->Reset(window); // reset (set) bóng ở chính giữa màn hình, paddle 1 ở bên trái giữa màn hình, paddle 2 ở bên phải giữa
+
+	for (int i = 0; i < 6; i++) {
+		int type;
+		type = 1 + rand() % (4 + 1 - 1);  // random só từ 1 đến 4
+		this->ElementObject[i] = new Element(this->Score1, this->Score2, this->BallObject, type);
+		if (i == 0)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2 + 100, window->getSize().y / 2 + 200);
+		else if (i == 1)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2, window->getSize().y / 2 + 200);
+		else if (i == 2)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2 - 100, window->getSize().y / 2 + 200);
+		else if (i == 3)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2, window->getSize().y / 2 - 200);
+		else if (i == 4)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2 - 100, window->getSize().y / 2 - 200);
+		else if (i == 5)
+			this->ElementObject[i]->setPosition(window->getSize().x / 2 + 100, window->getSize().y / 2 - 200);
+	}
 }
 void MainGameAI::Update(RenderWindow* window) {
 	this->Player1->Update(); // update sự kiện người chơi 1
@@ -29,6 +45,11 @@ void MainGameAI::Update(RenderWindow* window) {
 	this->BallObject->Update(window); // update bóng
 	this->Score1->Update(); // update điểm người chơi 1
 	this->Score2->Update(); // update điểm người chơi 2
+
+	for (int i = 0; i < 6; i++) {
+		this->ElementObject[i]->UpdateAI();
+	}
+
 	if (Keyboard::isKeyPressed(Keyboard::Key::Escape)) {  // nếu ấn thoát thì quay về menu
 		coreState.SetState(new MainMenu());
 	}
@@ -40,6 +61,9 @@ void MainGameAI::Render(RenderWindow* window) { // vẽ các object có trong tr
 	window->draw(*this->Player2);
 	window->draw(*this->Score1);
 	window->draw(*this->Score2);
+	for (int i = 0; i < 6; i++) {
+		window->draw(*this->ElementObject[i]);
+	}
 }
 void MainGameAI::Destroy(RenderWindow* window) {
 	delete this->Player1;
@@ -47,5 +71,4 @@ void MainGameAI::Destroy(RenderWindow* window) {
 	delete this->BallObject;
 	delete this->Score1;
 	delete this->Score2;
-	delete this->font;
 }

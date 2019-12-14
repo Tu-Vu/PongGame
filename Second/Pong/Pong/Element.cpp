@@ -4,6 +4,11 @@
 #include "WaterMap.h"
 #include "RockMap.h"
 
+#include "FireMapAI.h"
+#include "RockMapAI.h"
+#include "WaterMapAI.h"
+#include "WindMapAI.h"
+
 Element::Element(Score* Score1, Score* Score2,Ball* Ball, int type) {
 	this->Score1 = Score1;
 	this->Score2 = Score2;
@@ -34,6 +39,19 @@ void Element::Update() {
 			coreState.SetState(new RockMap(this->Score1->value, this->Score2->value));
 		else if (this->type == 4)
 			coreState.SetState(new WindMap(this->Score1->value, this->Score2->value));
+	}
+}
+void Element::UpdateAI() {
+	if (this->CheckCollision(this->BallObject)) {
+		this->sound->play(); // chạm bóng thì play sound
+		if (this->type == 1)
+			coreState.SetState(new FireMapAI(this->Score1->value, this->Score2->value));
+		else if (this->type == 2)
+			coreState.SetState(new WaterMapAI(this->Score1->value, this->Score2->value));
+		else if (this->type == 3)
+			coreState.SetState(new RockMapAI(this->Score1->value, this->Score2->value));
+		else if (this->type == 4)
+			coreState.SetState(new WindMapAI(this->Score1->value, this->Score2->value));
 	}
 }
 Element::~Element() {

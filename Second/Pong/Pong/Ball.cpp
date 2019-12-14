@@ -82,7 +82,6 @@ void Ball::Reset(RenderWindow* window) {
 }
 void Ball::RockReset(RenderWindow* window) {
 	int angle;
-	srand((int)time(0)); // random số khác nhau mỗi lần chạy
 	do {
 		angle = 5 + rand() % (355 + 1 - 5);  // random só từ 5 đến 355
 	} while ((angle > 45 && angle < 135) || (angle > 225 && angle < 315) || (angle > 175 && angle < 185));	// giới hạn góc không quá thẳng đứng, không quá ngang
@@ -100,7 +99,6 @@ void Ball::RockReset(RenderWindow* window) {
 }
 void Ball::WindReset(RenderWindow* window) {
 	int random;
-	srand((int)time(0)); // random số khác nhau mỗi lần chạy
 	random = 1 + rand() % (4 + 1 - 1);  // random só từ 1 đến 4
 	if (random == 1) {
 		this->velocity.x = 1.f; // entity sẽ move theo velocity này
@@ -136,7 +134,6 @@ void Ball::WindReset(RenderWindow* window) {
 }
 void Ball::FireReset(RenderWindow* window) {
 	int angle;
-	srand((int)time(0)); // random số khác nhau mỗi lần chạy
 	do {
 		angle = 5 + rand() % (355 + 1 - 5);  // random só từ 5 đến 355
 	} while ((angle > 45 && angle < 135) || (angle > 225 && angle < 315) || (angle > 175 && angle < 185));	// giới hạn góc không quá thẳng đứng, không quá ngang
